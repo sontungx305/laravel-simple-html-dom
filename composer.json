@@ -1,0 +1,35 @@
+{
+    "name": "sontungx305/laravel-simple-html-dom",
+    "description": "Laravel wrapper for the PHP Simple HTML DOM Parser package",
+    "keywords": [
+        "dom parser",
+        "html dom parser",
+        "laravel"
+    ],
+    "require": {
+        "php": "^7.4 | ^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "simplehtmldom/simplehtmldom": "dev-master"
+    },
+    "homepage": "https://github.com/sontungx305/laravel-simple-html-dom",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tung Nguyen Son",
+            "email": "sontung.x305@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Sontungx305\\LaravelSimpleHtmlDom\\": "src/" }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sontungx305\\LaravelSimpleHtmlDom\\ServiceProvider"
+            ],
+            "aliases": {
+                "SimpleHTMLDom": "Sontungx305\\LaravelSimpleHtmlDom\\Facade"
+            }
+        }
+    }
+}
