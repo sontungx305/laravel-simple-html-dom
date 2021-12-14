@@ -2,7 +2,7 @@
 
 namespace Sontungx305\LaravelSimpleHtmlDom;
 
-use SimpleHtmlDom;
+use Sontungx305\LaravelSimpleHtmlDom\SimpleHtmlDom;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -23,7 +23,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('SimpleHtmlDom', function ($app) {
+        $this->app->bind('SimpleHTMLDom', function ($app) {
             return new SimpleHtmlDom;
         });
     }

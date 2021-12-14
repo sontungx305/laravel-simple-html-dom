@@ -1,9 +1,11 @@
 <?php
 namespace Sontungx305\LaravelSimpleHtmlDom;
 use \simplehtmldom\HtmlDocument as simple_html_dom;
-use \simplehtmldom\HtmlNode as simple_html_dom_node;
 class SimpleHtmlDom {
-    
+    const DEFAULT_TARGET_CHARSET = 'UTF-8';
+    const DEFAULT_BR_TEXT = "\r\n";
+    const DEFAULT_SPAN_TEXT = ' ';
+    const MAX_FILE_SIZE = 2621440;
     function file_get_html(
     $url,
     $use_include_path = false,
@@ -12,12 +14,12 @@ class SimpleHtmlDom {
     $maxLen = -1,
     $lowercase = true,
     $forceTagsClosed = true,
-    $target_charset = simple_html_dom::DEFAULT_TARGET_CHARSET,
+    $target_charset = self::DEFAULT_TARGET_CHARSET,
     $stripRN = true,
-    $defaultBRText = simple_html_dom::DEFAULT_BR_TEXT,
-    $defaultSpanText = simple_html_dom::DEFAULT_SPAN_TEXT)
+    $defaultBRText = self::DEFAULT_BR_TEXT,
+    $defaultSpanText = self::DEFAULT_SPAN_TEXT)
     {
-        if($maxLen <= 0) { $maxLen = MAX_FILE_SIZE; }
+        if($maxLen <= 0) { $maxLen = self::MAX_FILE_SIZE; }
 
         $dom = new simple_html_dom(
             null,
@@ -49,10 +51,10 @@ class SimpleHtmlDom {
         $str,
         $lowercase = true,
         $forceTagsClosed = true,
-        $target_charset = simple_html_dom::DEFAULT_TARGET_CHARSET,
+        $target_charset = self::DEFAULT_TARGET_CHARSET,
         $stripRN = true,
-        $defaultBRText = simple_html_dom::DEFAULT_BR_TEXT,
-        $defaultSpanText = simple_html_dom::DEFAULT_SPAN_TEXT)
+        $defaultBRText = self::DEFAULT_BR_TEXT,
+        $defaultSpanText = self::DEFAULT_SPAN_TEXT)
     {
         $dom = new simple_html_dom(
             null,
@@ -64,7 +66,7 @@ class SimpleHtmlDom {
             $defaultSpanText
         );
 
-        if (empty($str) || strlen($str) > simple_html_dom::MAX_FILE_SIZE) {
+        if (empty($str) || strlen($str) > self::MAX_FILE_SIZE) {
             $dom->clear();
             return false;
         }
